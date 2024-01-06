@@ -26,6 +26,8 @@ export default function OnAuthState({ children }: { children: ReactNode }) {
           sessionStorage.removeItem("acocunt");
           router.push("/Account/login");
         }
+      } else {
+        router.push("/Account/login");
       }
     })();
 

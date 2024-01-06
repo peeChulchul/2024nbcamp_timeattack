@@ -17,7 +17,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className={openSans.className}>
         <ReduxProvider>
           <OnAuthState>
-            <main className="bg-neutral-100 min-h-screen">{children}</main>
+            <main className="bg-neutral-100 flex items-center justify-center min-h-screen">{children}</main>
           </OnAuthState>
         </ReduxProvider>
       </body>

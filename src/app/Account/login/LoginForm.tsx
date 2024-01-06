@@ -1,4 +1,5 @@
 "use client";
+import Button from "@/components/Button";
 import Input from "@/components/Input";
 import { setAccount } from "@/redux/modules/accountModules";
 import { useAppDispatch } from "@/redux/store";
@@ -24,7 +25,7 @@ export default function LoginForm() {
   return (
     <div>
       <FormProvider {...methods}>
-        <h1 className="text-lg font-bold text-center">로그인</h1>
+        <h1 className="text-lg font-bold text-center my-2">로그인</h1>
         <form className="flex flex-col gap-1" onSubmit={methods.handleSubmit(onSubmit)}>
           <Input
             type="email"
@@ -40,12 +41,12 @@ export default function LoginForm() {
             pettern={/^(?=.*[a-zA-Z])(?=.*[0-9]).{8,25}$/}
             errorMessage="영문 숫자 조합 8자리 이상으로 입력해주세요"
           />
-          <button>로그인</button>
+          <Button>로그인</Button>
         </form>
-        <div className="text-center text-sm">
+        <div className="text-center text-sm mt-4">
           회원이 아니신가요?
-          <Link href={"Account/signup"} className="font-semibold">
-            회원가입
+          <Link href={"signup"} className="font-semibold">
+            &nbsp;회원가입
           </Link>
         </div>
       </FormProvider>

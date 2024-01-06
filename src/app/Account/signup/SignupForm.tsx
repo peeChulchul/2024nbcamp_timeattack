@@ -1,24 +1,28 @@
 "use client";
+import Button from "@/components/Button";
 import Input from "@/components/Input";
 import { createAccount } from "@/service/account";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import React from "react";
 import { FormProvider, useForm } from "react-hook-form";
 
 export default function SignupForm() {
   const methods = useForm({ mode: "onChange" });
+  const router = useRouter();
   const onSubmit = async (data: any) => {
     const { 닉네임: nickname, 이메일: id, 비밀번호: password, ...rest } = data;
     const body = { id, password, nickname };
     const response = await createAccount(body);
 
     console.log(response);
+    router.push("./login");
   };
 
   return (
     <div>
       <FormProvider {...methods}>
-        <h1 className="text-lg font-bold text-center">회원가입</h1>
+        <h1 className="text-lg font-bold text-center my-2">회원가입</h1>
         <form className="flex flex-col gap-1" onSubmit={methods.handleSubmit(onSubmit)}>
           <Input
             type="string"
@@ -48,12 +52,12 @@ export default function SignupForm() {
             pettern={""}
             errorMessage=""
           />
-          <button>회원가입</button>
+          <Button>회원가입</Button>
         </form>
-        <div className="text-center text-sm ">
+        <div className="text-center text-sm my-4 ">
           이미 계정이 있으신가요?
-          <Link className="font-semibold  text-blue-950" href={"./"}>
-            로그인
+          <Link className="font-semibold  text-blue-950" href={"./login"}>
+            &nbsp;로그인
           </Link>
         </div>
       </FormProvider>
