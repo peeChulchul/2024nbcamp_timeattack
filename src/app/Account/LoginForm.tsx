@@ -1,11 +1,18 @@
 "use client";
 import Input from "@/components/Input";
+import { loginAccount } from "@/service/account";
 import React from "react";
 import { FormProvider, useForm } from "react-hook-form";
 
 export default function LoginForm() {
   const methods = useForm({ mode: "onChange" });
-  const onSubmit = (data: any) => console.log(data);
+  const onSubmit = async (data: any) => {
+    const { 이메일: id, 비밀번호: password } = data;
+    const body = { id, password };
+    const response = await loginAccount(body);
+
+    console.log(response);
+  };
   return (
     <div>
       <FormProvider {...methods}>
@@ -25,7 +32,6 @@ export default function LoginForm() {
             pettern={/^(?=.*[a-zA-Z])(?=.*[0-9]).{8,25}$/}
             errorMessage="영문 숫자 조합 8자리 이상으로 입력해주세요"
           />
-          {/* <span className="text-right text-sm font-semibold text-blue-950">비밀번호를 찾으셨나요?</span> */}
           <button>로그인</button>
         </form>
         <div className="text-center text-sm">
