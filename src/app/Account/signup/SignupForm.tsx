@@ -18,7 +18,7 @@ export default function SignupForm() {
   return (
     <div>
       <FormProvider {...methods}>
-        <h1 className="text-lg font-bold text-center">로그인</h1>
+        <h1 className="text-lg font-bold text-center">회원가입</h1>
         <form className="flex flex-col gap-1" onSubmit={methods.handleSubmit(onSubmit)}>
           <Input
             type="string"

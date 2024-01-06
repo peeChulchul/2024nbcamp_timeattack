@@ -3,11 +3,11 @@ import axios from "axios";
 const SURVER_URL = "https://moneyfulpublicpolicy.co.kr";
 
 export async function GET(req: NextRequest, context: { params: { accessToken: string } }) {
-  const body = await req.json();
   const {
     params: { accessToken }
   } = context;
 
+  console.log("유저 얻어오자");
   try {
     const response = await axios.get(`${SURVER_URL}/user`, {
       headers: {
@@ -18,8 +18,10 @@ export async function GET(req: NextRequest, context: { params: { accessToken: st
     return NextResponse.json(response.data);
   } catch (error: any) {
     return new Response(
-      JSON.stringify({ message: error.response.data || "잘못된 요청입니다.", status: error.response.status || 500 }),
-      {}
+      JSON.stringify({
+        message: error.response.data.message || "잘못된 요청입니다."
+      }),
+      { status: error.response.status || 500 }
     );
   }
 }

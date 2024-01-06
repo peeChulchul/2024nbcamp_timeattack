@@ -17,10 +17,18 @@ const accountModules = createSlice({
   name: "accountModules",
   initialState,
   reducers: {
-    authLogout: (state, action) => {},
-    authClear: (state, action) => {}
+    setAccount: (state, action) => {
+      console.log(action.payload);
+      state.accessToken = action.payload.accessToken;
+      state.avatar = action.payload.avatar;
+      state.nickname = action.payload.nickname;
+      state.userId = action.payload.userId;
+      state.isLogin = true;
+      sessionStorage.setItem("account", action.payload.accessToken);
+    },
+    clerAccount: (state, action) => {}
   }
 });
 
-export const { authLogout, authClear } = accountModules.actions;
+export const { setAccount, clerAccount } = accountModules.actions;
 export default accountModules.reducer;

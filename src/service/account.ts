@@ -9,3 +9,8 @@ export async function loginAccount(body: any) {
   const { data } = await axios.post("/api/account/login", body);
   return data;
 }
+
+export async function getAccount(url: any) {
+  const { data } = await axios.get(`/api/account/${url}`);
+  return data;
+}

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Open_Sans } from "next/font/google";
 import "./globals.css";
 import ReduxProvider from "@/redux";
+import OnAuthState from "@/components/OnAuthState";
 
 const openSans = Open_Sans({ subsets: ["latin"] });
 
@@ -15,7 +16,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en">
       <body className={openSans.className}>
         <ReduxProvider>
-          <main className="bg-neutral-100 min-h-screen">{children}</main>
+          <OnAuthState>
+            <main className="bg-neutral-100 min-h-screen">{children}</main>
+          </OnAuthState>
         </ReduxProvider>
       </body>
     </html>

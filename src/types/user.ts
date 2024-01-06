@@ -1,6 +1,6 @@
 export interface IUser {
   accessToken: string;
   userId: string;
-  avatar: string;
+  avatar: string | null;
   nickname: string;
 }

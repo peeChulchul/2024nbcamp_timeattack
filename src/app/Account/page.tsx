@@ -1,16 +1,8 @@
+"use client";
+import { useAppDispatch, useAppSelector } from "@/redux/store";
 import React from "react";
-import LoginForm from "./LoginForm";
 
-export default function LoginPage() {
-  return (
-    <>
-      <LoginForm />
-      {/* <hr />
-      <div className="flex flex-col">
-        <button>카카오</button>
-        <button>구글</button>
-        <button>Apple</button>
-      </div> */}
-    </>
-  );
+export default function AccountPage() {
+  const { avatar, nickname, userId } = useAppSelector((state) => state.accountModules);
+  return <div>{nickname}의 페이지</div>;
 }
