@@ -13,7 +13,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <body className={openSans.className}>
-        <main>{children}</main>
+        <main className="bg-neutral-100 min-h-screen">{children}</main>
       </body>
     </html>
   );
