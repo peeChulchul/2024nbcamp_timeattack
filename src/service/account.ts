@@ -14,3 +14,8 @@ export async function getAccount(url: any) {
   const { data } = await axios.get(`/api/account/${url}`);
   return data;
 }
+
+export async function modifyAccount({ url, formData }: { url: string; formData: FormData }) {
+  const { data } = await axios.patch(`/api/account/${url}`, formData);
+  return data;
+}

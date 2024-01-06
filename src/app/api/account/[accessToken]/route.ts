@@ -25,3 +25,30 @@ export async function GET(req: NextRequest, context: { params: { accessToken: st
     );
   }
 }
+
+export async function PATCH(req: NextRequest, context: { params: { accessToken: string } }) {
+  const {
+    params: { accessToken }
+  } = context;
+
+  const formData = await req.formData();
+
+  try {
+    const response = await axios.get(`${SURVER_URL}/profile`, {
+      data: formData,
+      headers: {
+        ContentType: "multipart/form-data",
+        Authorization: `Bearer ${accessToken}`
+      }
+    });
+    console.log("결과", response.data);
+    return NextResponse.json(response.data);
+  } catch (error: any) {
+    return new Response(
+      JSON.stringify({
+        message: error.response.data.message || "잘못된 요청입니다."
+      }),
+      { status: error.response.status || 500 }
+    );
+  }
+}
