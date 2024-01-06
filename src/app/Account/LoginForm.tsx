@@ -12,12 +12,14 @@ export default function LoginForm() {
         <h1 className="text-lg font-bold text-center">로그인</h1>
         <form className="flex flex-col gap-1" onSubmit={methods.handleSubmit(onSubmit)}>
           <Input
+            type="email"
             placeholder="이메일 주소를 입력해주세요"
             label="이메일"
             pettern={/\S+@\S+\.\S+/}
             errorMessage="이메일형식으로 입력해주세요"
           />
           <Input
+            type="password"
             placeholder="비밀번호를 입력해주세요"
             label="비밀번호"
             pettern={/^(?=.*[a-zA-Z])(?=.*[0-9]).{8,25}$/}

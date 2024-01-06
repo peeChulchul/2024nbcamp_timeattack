@@ -8,9 +8,10 @@ interface IProps {
   pettern: any;
   errorMessage: string;
   validate?: any;
+  type: string;
 }
 
-export default function Input({ placeholder, label, pettern, validate, errorMessage }: IProps) {
+export default function Input({ placeholder, label, pettern, validate, errorMessage, type }: IProps) {
   const {
     register,
     watch,
@@ -26,6 +27,7 @@ export default function Input({ placeholder, label, pettern, validate, errorMess
       >
         <label className="text-sm font-semibold">{label}</label>
         <input
+          type={type}
           placeholder={placeholder}
           className="focus:outline-none"
           {...register(label, {
