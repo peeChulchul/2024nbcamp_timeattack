@@ -1,5 +1,7 @@
 ## 2024nbcamp_timeattack
 
+
+
 ### 프로젝트 개요
 
 nextjs를 통해 회원가입 및 로그인 유저정보수정 기능을 구현하는 과제를 받았다.
@@ -12,6 +14,9 @@ nextjs를 통해 회원가입 및 로그인 유저정보수정 기능을 구현�
 ### 중요하게 생각했던 점
 구현하며 중요하게 생각했던점은 로그인상태를 유지하는 것과 현재 로그인 상태일경우 로그인 페이지나 회원가입 페이지의 접근을 막고 토큰이 만료되었거나 로그인상태가 아니라면 홈화면 접근을 막는 것을 목표로 구현하였다.
 코드 작성시 최대한 비즈니스로직을 따로 분리해서 사용하고자 api라우터나 service폴더를 만들어 사용하였으나 잘 안된 것 같아 너무 아쉽다..
+
+<img width="478" alt="image" src="https://github.com/peeChulchul/2024nbcamp_timeattack/assets/144536397/bb6b2f7e-b56b-4116-b6a3-63a0525d3b5c">
+<img width="496" alt="image" src="https://github.com/peeChulchul/2024nbcamp_timeattack/assets/144536397/eb761b42-6211-4aa1-afb2-da5d0f9a7870">
 
 
 
