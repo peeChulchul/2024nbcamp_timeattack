@@ -1,12 +1,15 @@
 "use client";
 import Input from "@/components/Input";
+import { useAppSelector } from "@/redux/store";
 import { loginAccount } from "@/service/account";
 import Link from "next/link";
 import React from "react";
 import { FormProvider, useForm } from "react-hook-form";
+import { useSelector } from "react-redux";
 
 export default function LoginForm() {
   const methods = useForm({ mode: "onChange" });
+
   const onSubmit = async (data: any) => {
     const { 이메일: id, 비밀번호: password } = data;
     const body = { id, password };

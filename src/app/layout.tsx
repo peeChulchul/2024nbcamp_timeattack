@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Open_Sans } from "next/font/google";
 import "./globals.css";
-import { ReduxProvider } from "@/redux/modules";
+import ReduxProvider from "@/redux";
 
 const openSans = Open_Sans({ subsets: ["latin"] });
 
