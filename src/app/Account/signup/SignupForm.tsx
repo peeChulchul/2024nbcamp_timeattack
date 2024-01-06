@@ -1,6 +1,7 @@
 "use client";
 import Input from "@/components/Input";
 import { createAccount } from "@/service/account";
+import Link from "next/link";
 import React from "react";
 import { FormProvider, useForm } from "react-hook-form";
 
@@ -49,8 +50,11 @@ export default function SignupForm() {
           />
           <button>회원가입</button>
         </form>
-        <div className="text-center text-sm font-semibold text-blue-950">
-          이미 계정이 있으신가요?<strong>로그인</strong>
+        <div className="text-center text-sm ">
+          이미 계정이 있으신가요?
+          <Link className="font-semibold  text-blue-950" href={"./"}>
+            로그인
+          </Link>
         </div>
       </FormProvider>
     </div>
