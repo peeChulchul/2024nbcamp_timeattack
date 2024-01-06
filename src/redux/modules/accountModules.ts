@@ -26,7 +26,15 @@ const accountModules = createSlice({
       state.isLogin = true;
       sessionStorage.setItem("account", action.payload.accessToken);
     },
-    clerAccount: (state, action) => {}
+    clerAccount: (state, action) => {
+      console.log("실행");
+      state.accessToken = "";
+      state.avatar = "";
+      state.nickname = "";
+      state.userId = "";
+      state.isLogin = false;
+      sessionStorage.removeItem("account");
+    }
   }
 });
 
